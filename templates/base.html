@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Sumedh Rajarshi - Football Operations & Player Welfare Professional{% endblock %}">
+    <meta name="keywords" content="football operations, player welfare, sports management, Bombay Sharks Football Academy">
+    <meta name="author" content="Sumedh Rajarshi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}Sumedh Rajarshi - Professional Portfolio{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Football operations and player welfare professional{% endblock %}">
+    
+    <title>{% block title %}Sumedh Rajarshi - Portfolio{% endblock %}</title>
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    {% load static %}
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="{% url 'portfolio:home' %}" class="navbar-brand">Sumedh Rajarshi</a>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="#home" class="navbar-link">Home</a></li>
+                <li><a href="#about" class="navbar-link">About</a></li>
+                <li><a href="#experience" class="navbar-link">Experience</a></li>
+                <li><a href="#bombay-sharks" class="navbar-link">Bombay Sharks</a></li>
+                <li><a href="#certifications" class="navbar-link">Certifications</a></li>
+                <li><a href="#companies" class="navbar-link">Companies</a></li>
+                <li><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Messages/Alerts -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="footer-text">
+                &copy; {{ "now"|date:"Y" }} Sumedh Rajarshi. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    {% load static %}
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

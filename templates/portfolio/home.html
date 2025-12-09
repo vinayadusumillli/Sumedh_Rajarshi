@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section id="home" class="hero section">
+    <div class="container">
+        <div class="hero-content fade-in-up">
+            {% if about_me %}
+                {% if about_me.profile_photo %}
+                <div class="hero-image float-animation">
+                    <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}">
+                </div>
+                {% endif %}
+                
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">{{ about_me.name }}</span>
+                </h1>
+                <p class="hero-subtitle">{{ about_me.title }}</p>
+                
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary btn-ripple">Get In Touch</a>
+                    {% if about_me.resume %}
+                    <a href="{{ about_me.resume.url }}" class="btn btn-outline" target="_blank">Download CV</a>
+                    {% endif %}
+                </div>
+            {% else %}
+                <h1 class="hero-title gradient-text">Welcome</h1>
+                <p class="hero-subtitle">Professional Portfolio</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+{% if about_me %}
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in-up">About Me</h2>
+        
+        <div class="about-content">
+            <div class="about-image-wrapper fade-in-left">
+                {% if about_me.profile_photo %}
+                <div class="about-image image-zoom">
+                    <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}" class="img-rounded">
+                </div>
+                {% endif %}
+                
+                {% if about_me.linkedin_url or about_me.instagram_url or about_me.twitter_url %}
+                <div class="social-links">
+                    {% if about_me.linkedin_url %}
+                    <a href="{{ about_me.linkedin_url }}" target="_blank" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    {% endif %}
+                    {% if about_me.instagram_url %}
+                    <a href="{{ about_me.instagram_url }}" target="_blank" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    {% endif %}
+                    {% if about_me.twitter_url %}
+                    <a href="{{ about_me.twitter_url }}" target="_blank" class="social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="about-info fade-in-right">
+                <div>{{ about_me.bio|safe }}</div>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:{{ about_me.email }}">{{ about_me.email }}</a></p>
+                    {% if about_me.phone %}
+                    <p><i class="fas fa-phone"></i> <a href="tel:{{ about_me.phone }}">{{ about_me.phone }}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Experience Section -->
+{% if experiences %}
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in-up">Experience</h2>
+        
+        <div class="timeline">
+            {% for exp in experiences %}
+            <div class="timeline-item fade-in-up delay-{{ forloop.counter|divisibleby:6|yesno:"6,1" }}">
+                <div class="timeline-content card">
+                    <div class="timeline-header">
+                        <div class="timeline-company">
+                            {% if exp.company_logo %}
+                            <img src="{{ exp.company_logo.url }}" alt="{{ exp.company }}" class="company-logo">
+                            {% endif %}
+                            <div>
+                                <h3 class="timeline-role">{{ exp.role }}</h3>
+                                <p class="timeline-company-name">{{ exp.company }}</p>
+                            </div>
+                        </div>
+                        <div class="timeline-date">
+                            {{ exp.start_date|date:"M Y" }} - 
+                            {% if exp.is_current %}
+                                <span class="badge badge-accent">Present</span>
+                            {% else %}
+                                {{ exp.end_date|date:"M Y" }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        {{ exp.description|safe }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Bombay Sharks Section -->
+{% if bombay_sharks %}
+<section id="bombay-sharks" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in-up">Bombay Sharks Football Academy</h2>
+        
+        <div class="bombay-sharks fade-in-up delay-2">
+            {% if bombay_sharks.hero_image %}
+            <div class="sharks-hero">
+                <img src="{{ bombay_sharks.hero_image.url }}" alt="{{ bombay_sharks.title }}">
+            </div>
+            {% endif %}
+            
+            <div class="sharks-content">
+                <h3 class="sharks-title">{{ bombay_sharks.title }}</h3>
+                <p class="sharks-subtitle">{{ bombay_sharks.subtitle }}</p>
+                
+                <div>{{ bombay_sharks.description|safe }}</div>
+                
+                <div class="sharks-details">
+                    <div class="sharks-detail-card">
+                        <div class="sharks-detail-title">Age Groups</div>
+                        <p>{{ bombay_sharks.age_groups }}</p>
+                    </div>
+                    <div class="sharks-detail-card">
+                        <div class="sharks-detail-title">Locations</div>
+                        <p>{{ bombay_sharks.locations }}</p>
+                    </div>
+                    <div class="sharks-detail-card">
+                        <div class="sharks-detail-title">Training Philosophy</div>
+                        <div>{{ bombay_sharks.training_philosophy|safe|truncatewords:30 }}</div>
+                    </div>
+                </div>
+                
+                {% if bombay_sharks.gallery_images.all %}
+                <div class="sharks-gallery">
+                    {% for image in bombay_sharks.gallery_images.all %}
+                    <div class="gallery-item">
+                        <img src="{{ image.image.url }}" alt="{{ image.caption }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Certifications Section -->
+{% if certifications %}
+<section id="certifications" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in-up">Certifications</h2>
+        
+        <div class="certifications-grid">
+            {% for cert in certifications %}
+            <div class="cert-card fade-in-up delay-{{ forloop.counter|divisibleby:6|yesno:"6,1" }} lift-on-hover">
+                {% if cert.certificate_image %}
+                <img src="{{ cert.certificate_image.url }}" alt="{{ cert.name }}" class="cert-badge">
+                {% endif %}
+                <h4 class="cert-name">{{ cert.name }}</h4>
+                <p class="cert-org">{{ cert.issuing_organization }}</p>
+                <p class="cert-date">{{ cert.issue_date|date:"F Y" }}</p>
+                {% if cert.credential_id %}
+                <p class="cert-credential"><small>ID: {{ cert.credential_id }}</small></p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Companies Section -->
+{% if companies %}
+<section id="companies" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in-up">Companies I've Worked With</h2>
+        
+        <div class="companies-grid">
+            {% for company in companies %}
+            {% if company.logo %}
+            <div class="company-card fade-in-up delay-{{ forloop.counter|divisibleby:6|yesno:"6,1" }}">
+                {% if company.website_url %}
+                <a href="{{ company.website_url }}" target="_blank" title="{{ company.company_name }}">
+                    <img src="{{ company.logo.url }}" alt="{{ company.company_name }}">
+                </a>
+                {% else %}
+                <img src="{{ company.logo.url }}" alt="{{ company.company_name }}">
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Contact Section -->
+<section id="contact" class="section contact-section">
+    <div class="container">
+        <h2 class="section-title fade-in-up">Get In Touch</h2>
+        
+        <div class="contact-container fade-in-up delay-2">
+            <form method="post" action="{% url 'portfolio:contact_submit' %}" class="contact-form">
+                {% csrf_token %}
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ contact_form.name }}
+                        {% if contact_form.name.errors %}
+                        <span class="error">{{ contact_form.name.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ contact_form.email }}
+                        {% if contact_form.email.errors %}
+                        <span class="error">{{ contact_form.email.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ contact_form.phone }}
+                        {% if contact_form.phone.errors %}
+                        <span class="error">{{ contact_form.phone.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ contact_form.subject }}
+                        {% if contact_form.subject.errors %}
+                        <span class="error">{{ contact_form.subject.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">{{ contact_form.interest_type.label }}</label>
+                    {{ contact_form.interest_type }}
+                    {% if contact_form.interest_type.errors %}
+                    <span class="error">{{ contact_form.interest_type.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group" id="ageGroupField">
+                    <label class="form-label">{{ contact_form.age_group.label }}</label>
+                    {{ contact_form.age_group }}
+                    {% if contact_form.age_group.errors %}
+                    <span class="error">{{ contact_form.age_group.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ contact_form.message }}
+                    {% if contact_form.message.errors %}
+                    <span class="error">{{ contact_form.message.errors.0 }}</span>
+                    {% endif %}
+                </div>
+                
+                {{ contact_form.website }}
+                
+                <button type="submit" class="btn btn-primary btn-ripple" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
