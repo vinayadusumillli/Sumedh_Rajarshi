@@ -169,12 +169,6 @@
         0 0 80px rgba(99, 102, 241, 0.4);
     position: relative;
     transition: transform var(--transition-base);
-    animation: float-subtle 6s ease-in-out infinite;
-}
-
-@keyframes float-subtle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
 }
 
 .hero-image:hover {
