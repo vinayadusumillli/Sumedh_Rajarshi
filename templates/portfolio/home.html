@@ -112,9 +112,14 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="timeline-description">
+                    <div class="timeline-description" data-collapsible>
                         {{ exp.description|safe }}
                     </div>
+                    <button class="btn-collapse" data-toggle>
+                        <span class="show-more">Show more</span>
+                        <span class="show-less" style="display: none;">Show less</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
             </div>
             {% endfor %}

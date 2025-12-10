@@ -79,12 +79,17 @@
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Hero image - removed floating animation for cleaner look */
+.hero-image {
+    transition: transform var(--transition-base);
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
 }
 
 @keyframes pulse {

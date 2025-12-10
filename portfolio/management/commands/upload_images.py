@@ -92,11 +92,11 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING('⚠ Bombay Sharks Academy entry not found'))
             return
         
-        # Use a suitable photo for the hero image
-        # Since we don't have a specific Bombay Sharks photo, we'll use a football-related one
+        # Use individual professional football photos for Bombay Sharks
+        # Mumbai City FC team photo should stay with Experience timeline
         hero_candidates = [
-            "Mumbai City FC team photo.jpg",
-            "Mumbai City Fc old photo with trophy.jpg",
+            "Mumbai city fc solo photo.jpg",
+            "Jaipur Pink Panthers solo photo 1.jpg",
         ]
         
         for candidate in hero_candidates:
@@ -111,11 +111,10 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f'✓ Uploaded Bombay Sharks hero image: {candidate}'))
                 break
         
-        # Add remaining photos to gallery
+        # Add professional action/training photos to gallery (not team photos)
         gallery_photos = [
-            "Jaipur Pink Panthers solo photo 1.jpg",
             "Jaipur Pink Panthers solo photo 2.jpg",
-            "Mumbai city fc solo photo.jpg",
+            "Mumbai City Fc old photo with trophy.jpg",
         ]
         
         for photo_name in gallery_photos:

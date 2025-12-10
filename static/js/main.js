@@ -142,6 +142,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // === COLLAPSIBLE EXPERIENCE DESCRIPTIONS ===
+    const collapseToggles = document.querySelectorAll('[data-toggle]');
+
+    collapseToggles.forEach(toggle => {
+        const description = toggle.previousElementSibling;
+        const showMoreText = toggle.querySelector('.show-more');
+        const showLessText = toggle.querySelector('.show-less');
+
+        // Initially collapse if there are more than 2 bullet points
+        const listItems = description.querySelectorAll('ul li');
+        if (listItems.length > 2) {
+            description.classList.add('collapsed');
+        } else {
+            // Hide button if 2 or fewer items
+            toggle.style.display = 'none';
+        }
+
+        toggle.addEventListener('click', function () {
+            description.classList.toggle('collapsed');
+            toggle.classList.toggle('expanded');
+
+            if (description.classList.contains('collapsed')) {
+                showMoreText.style.display = 'inline';
+                showLessText.style.display = 'none';
+            } else {
+                showMoreText.style.display = 'none';
+                showLessText.style.display = 'inline';
+            }
+        });
+    });
+
     // === IMAGE LAZY LOADING ===
     if ('loading' in HTMLImageElement.prototype) {
         const images = document.querySelectorAll('img[loading="lazy"]');
