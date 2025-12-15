@@ -31,8 +31,7 @@
             
             <!-- Main photo container -->
             <div style="position: relative; width: 100%; height: 100%; border-radius: 0; overflow: visible;">
-                <!-- Photo -->
-                <div style="position: absolute; inset: 0; overflow: hidden; border-radius: 1rem;">
+               <div style="position: absolute; inset: 0; overflow: hidden; border-radius: 1rem;">
                     {% if about_me.profile_photo %}
                     <img src="{{ about_me.profile_photo.url }}" 
                          alt="{{about_me.name}} - Professional Photo" 
@@ -44,33 +43,43 @@
                             filter: brightness(1.05) contrast(1.08) saturate(1.1);
                          ">
                     {% endif %}
-                {% if about_me.profile_photo %}
-                <img src="{{ about_me.profile_photo.url }}" alt="{{about_me.name}} - Professional Photo" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(1.08) contrast(1.1) saturate(1.15) hue-rotate(-2deg); transform: scale(1.02);">
-                {% endif %}
+                </div>
                 
-                <!-- Premium overlay with subtle vignette -->
-                <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, transparent 30%, rgba(15, 23, 42, 0.15) 100%); pointer-events: none;"></div>
+                <!-- Wavy SVG Overlay 1 (Top) - Esther Style -->
+                <svg style="position: absolute; top: -5%; left: -10%; width: 120%; height: 40%; z-index: 10; pointer-events: none;" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                    <path d="M0,100 Q300,0 600,100 T1200,100 L1200,0 L0,0 Z" fill="rgba(15, 23, 42, 0.95)" />
+                </svg>
                 
-                <!-- Subtle light reflection effect -->
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 100%); pointer-events: none;"></div>
+                <!-- Wavy SVG Overlay 2 (Left Side) - Esther Style -->
+                <svg style="position: absolute; left: -15%; top: 0; width: 50%; height: 100%; z-index: 10; pointer-events: none;" viewBox="0 0 400 1200" preserveAspectRatio="none">
+                    <path d="M0,0 Q150,300 100,600 T0,1200 L0,0 Z" fill="rgba(15, 23, 42, 0.9)" />
+                </svg>
+                
+                <!-- Wavy SVG Overlay 3 (Bottom) - Esther Style -->
+                <svg style="position: absolute; bottom: -5%; left: -10%; width: 120%; height: 35%; z-index: 10; pointer-events: none;" viewBox="0 0 1200 350" preserveAspectRatio="none">
+                    <path d="M0,350 L0,250 Q300,150 600,250 T1200,250 L1200,350 Z" fill="rgba(15, 23, 42, 0.95)" />
+                </svg>
+                
+                <!-- Wavy SVG Overlay 4 (Right Side) - Esther Style -->
+                <svg style="position: absolute; right: -15%; top: 0; width: 50%; height: 100%; z-index: 10; pointer-events: none;" viewBox="0 0 400 1200" preserveAspectRatio="none">
+                    <path d="M400,0 Q250,300 300,600 T400,1200 L400,0 Z" fill="rgba(15, 23, 42, 0.85)" />
+                </svg>
+                
+                <!-- Subtle glow vignette -->
+                <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(15, 23, 42, 0.3) 80%); z-index: 11; pointer-events: none;"></div>
             </div>
         </div>
+        
         {% endif %}
     </div>
     
-    <!-- CSS Animations for Creative Photo -->
+    <!-- CSS Animations -->
     <style>
-    @keyframes pulse {
-        0%, 100% { opacity: 0.4; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.05); }
-    }
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-    }
-    @keyframes shine {
-        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    .btn:hover {
+        background: #3b82f6;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
     }
     </style>
 </section>
