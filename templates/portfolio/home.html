@@ -164,26 +164,34 @@
     @media (max-width: 768px) {
         .hero .container {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
+            gap: 2rem !important;
             padding: 0 1.5rem !important;
         }
         
         .hero {
-            padding: 100px 0 80px !important;
+            padding: 100px 0 60px !important;
             min-height: auto !important;
         }
         
         .hero-content {
             max-width: 100% !important;
             order: 2;
+            text-align: center;
         }
         
         .hero-image-wrapper {
             order: 1;
-            height: 400px !important;
+            height: 350px !important;
+            margin: 0 auto;
+            max-width: 500px;
         }
         
-        .hero-content h2 {
+        /* Hide SVG overlays on mobile - they cause layout issues */
+        .hero-image-wrapper svg {
+            display: none !important;
+        }
+        
+        .hero-content h1 {
             font-size: 2rem !important;
         }
         
@@ -191,41 +199,76 @@
             font-size: 1rem !important;
         }
         
-        .btn {
-            padding: 0.75rem 1.5rem !important;
-            font-size: 0.813rem !important;
+        .hero-content > div {
+            justify-content: center !important;
+        }
+        
+        .btn-premium-primary,
+        .btn-premium-secondary {
+            padding: 0.875rem 1.5rem !important;
+            font-size: 0.938rem !important;
         }
     }
     
     /* Mobile (480px and below) */
     @media (max-width: 480px) {
         .hero {
-            padding: 80px 0 60px !important;
+            padding: 80px 0 40px !important;
         }
         
         .hero .container {
-            gap: 2rem !important;
+            gap: 1.5rem !important;
             padding: 0 1rem !important;
         }
         
         .hero-image-wrapper {
-            height: 350px !important;
+            height: 280px !important;
         }
         
-        .hero-content h2 {
-            font-size: 1.75rem !important;
-            margin-bottom: 0.75rem !important;
+        .hero-badge {
+            font-size: 0.75rem !important;
+            padding: 0.5rem 1rem !important;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
         }
         
         .hero-content p {
-            font-size: 0.938rem !important;
+            font-size: 0.875rem !important;
             line-height: 1.6 !important;
+            margin-bottom: 1.5rem !important;
         }
         
-        .btn {
+        .btn-premium-primary,
+        .btn-premium-secondary {
             width: 100%;
             text-align: center;
             justify-content: center;
+            padding: 0.75rem 1rem !important;
+            font-size: 0.875rem !important;
+        }
+        
+        /* Stack buttons vertically on very small screens */
+        .hero-content > div {
+            flex-direction: column !important;
+            width: 100%;
+        }
+    }
+    
+    /* Extra Small Mobile (360px and below) */
+    @media (max-width: 360px) {
+        .hero-content h1 {
+            font-size: 1.25rem !important;
+        }
+        
+        .hero-image-wrapper {
+            height: 250px !important;
+        }
+        
+        .hero-content p {
+            font-size: 0.813rem !important;
         }
     }
     </style>

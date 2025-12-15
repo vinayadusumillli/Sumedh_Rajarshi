@@ -23,7 +23,8 @@
     }
     
     .nav-links {
-        display: none; /* Mobile menu would go here */
+        gap: 1rem;
+        font-size: 0.875rem;
     }
     
     /* Typography */
@@ -37,8 +38,9 @@
     
     /* About Section */
     .about-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
+        text-align: center;
     }
     
     .about-image-wrapper {
@@ -47,25 +49,33 @@
     }
     
     /* Experience Timeline */
+    .timeline {
+        padding-left: 30px;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
     .timeline-item {
-        padding-left: 2.5rem;
+        padding-left: 1.5rem;
     }
     
     .timeline-item::before {
-        left: 8px;
+        left: -21px;
     }
     
     /* Cards & Grid Layouts */
     .certifications-grid,
     .companies-grid,
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
         gap: 1.5rem;
     }
     
     /* Stats Section */
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 1.5rem;
     }
 }
@@ -90,17 +100,35 @@
         font-size: 1.25rem;
     }
     
+    .nav-links {
+        display: none;
+    }
+    
     /* Cards Stack Vertically */
     .certifications-grid,
     .companies-grid,
     .skills-grid,
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     
     /* Timeline */
+    .timeline {
+        padding-left: 25px;
+    }
+    
+    .timeline::before {
+        left: 12px;
+    }
+    
     .timeline-item {
-        padding-left: 2rem;
+        padding-left: 1rem;
+    }
+    
+    .timeline-item::before {
+        left: -18px;
+        width: 12px;
+        height: 12px;
     }
     
     .timeline-content h3 {
@@ -131,6 +159,15 @@
         text-align: center;
         gap: 1rem;
     }
+    
+    /* About Content */
+    .about-info {
+        text-align: center;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
 }
 
 /* Extra Small Mobile (360px and below) */
@@ -139,7 +176,11 @@
         font-size: 1.5rem;
     }
     
-    .hero-image-wrapper {
-        height: 300px !important;
+    .section-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
     }
 }
