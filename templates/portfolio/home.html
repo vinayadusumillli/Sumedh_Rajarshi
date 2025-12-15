@@ -73,13 +73,84 @@
         {% endif %}
     </div>
     
-    <!-- CSS Animations -->
+    <!-- CSS Animations & Mobile Responsive Styles -->
     <style>
     .btn:hover {
         background: #3b82f6;
         color: white;
         transform: translateY(-2px);
         box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* ===== MOBILE & TABLET RESPONSIVE STYLES ===== */
+    
+    /* Tablets (768px and below) */
+    @media (max-width: 768px) {
+        .hero .container {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+            padding: 0 1.5rem !important;
+        }
+        
+        .hero {
+            padding: 100px 0 80px !important;
+            min-height: auto !important;
+        }
+        
+        .hero-content {
+            max-width: 100% !important;
+            order: 2;
+        }
+        
+        .hero-image-wrapper {
+            order: 1;
+            height: 400px !important;
+        }
+        
+        .hero-content h2 {
+            font-size: 2rem !important;
+        }
+        
+        .hero-content p {
+            font-size: 1rem !important;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem !important;
+            font-size: 0.813rem !important;
+        }
+    }
+    
+    /* Mobile (480px and below) */
+    @media (max-width: 480px) {
+        .hero {
+            padding: 80px 0 60px !important;
+        }
+        
+        .hero .container {
+            gap: 2rem !important;
+            padding: 0 1rem !important;
+        }
+        
+        .hero-image-wrapper {
+            height: 350px !important;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.75rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+        
+        .hero-content p {
+            font-size: 0.938rem !important;
+            line-height: 1.6 !important;
+        }
+        
+        .btn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
     }
     </style>
 </section>
