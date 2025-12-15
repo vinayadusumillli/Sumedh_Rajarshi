@@ -72,44 +72,33 @@
         <!-- RIGHT: Photo with Wavy SVG Overlays (Esther Style) -->
         <div class="hero-image-wrapper" style="position: relative; height: 600px;">
             
-            <!-- Main photo container -->
-            <div style="position: relative; width: 100%; height: 100%; border-radius: 0; overflow: visible;">
-               <div style="position: absolute; inset: 0; overflow: hidden; border-radius: 1rem;">
-                    {% if about_me.profile_photo %}
-                    <img src="{{ about_me.profile_photo.url }}" 
-                         alt="{{about_me.name}} - Professional Photo" 
-                         style="
-                            width: 100%; 
-                            height: 100%; 
-                            object-fit: cover; 
-                            object-position: center 30%;
-                            filter: brightness(1.05) contrast(1.08) saturate(1.1);
-                         ">
-                    {% endif %}
-                </div>
+            <!-- Photo Container - Simplified for Mobile -->
+            <div class="hero-photo-container" style="position: relative; width: 100%; height: 100%; border-radius: 1rem; overflow: hidden; background: rgba(15, 23, 42, 0.5);">
+                {% if about_me.profile_photo %}
+                <img src="{{ about_me.profile_photo.url }}" 
+                     alt="{{about_me.name}} - Professional Photo" 
+                     style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;">
+                {% endif %}
                 
-                <!-- Wavy SVG Overlay 1 (Top) - Esther Style -->
-                <svg style="position: absolute; top: -5%; left: -10%; width: 120%; height: 40%; z-index: 10; pointer-events: none;" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                <!-- Wavy SVG Overlays - Hidden on Mobile via CSS -->
+                <svg class="hero-svg-overlay" style="position: absolute; top: -5%; left: -10%; width: 120%; height: 40%; z-index: 10; pointer-events: none;" viewBox="0 0 1200 400" preserveAspectRatio="none">
                     <path d="M0,100 Q300,0 600,100 T1200,100 L1200,0 L0,0 Z" fill="rgba(15, 23, 42, 0.95)" />
                 </svg>
                 
-                <!-- Wavy SVG Overlay 2 (Left Side) - Esther Style -->
-                <svg style="position: absolute; left: -15%; top: 0; width: 50%; height: 100%; z-index: 10; pointer-events: none;" viewBox="0 0 400 1200" preserveAspectRatio="none">
+                <svg class="hero-svg-overlay" style="position: absolute; left: -15%; top: 0; width: 50%; height: 100%; z-index: 10; pointer-events: none;" viewBox="0 0 400 1200" preserveAspectRatio="none">
                     <path d="M0,0 Q150,300 100,600 T0,1200 L0,0 Z" fill="rgba(15, 23, 42, 0.9)" />
                 </svg>
                 
-                <!-- Wavy SVG Overlay 3 (Bottom) - Esther Style -->
-                <svg style="position: absolute; bottom: -5%; left: -10%; width: 120%; height: 35%; z-index: 10; pointer-events: none;" viewBox="0 0 1200 350" preserveAspectRatio="none">
+                <svg class="hero-svg-overlay" style="position: absolute; bottom: -5%; left: -10%; width: 120%; height: 35%; z-index: 10; pointer-events: none;" viewBox="0 0 1200 350" preserveAspectRatio="none">
                     <path d="M0,350 L0,250 Q300,150 600,250 T1200,250 L1200,350 Z" fill="rgba(15, 23, 42, 0.95)" />
                 </svg>
                 
-                <!-- Wavy SVG Overlay 4 (Right Side) - Esther Style -->
-                <svg style="position: absolute; right: -15%; top: 0; width: 50%; height: 100%; z-index: 10; pointer-events: none;" viewBox="0 0 400 1200" preserveAspectRatio="none">
+                <svg class="hero-svg-overlay" style="position: absolute; right: -15%; top: 0; width: 50%; height: 100%; z-index: 10; pointer-events: none;" viewBox="0 0 400 1200" preserveAspectRatio="none">
                     <path d="M400,0 Q250,300 300,600 T400,1200 L400,0 Z" fill="rgba(15, 23, 42, 0.85)" />
                 </svg>
                 
-                <!-- Subtle glow vignette -->
-                <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(15, 23, 42, 0.3) 80%); z-index: 11; pointer-events: none;"></div>
+                <!-- Subtle vignette -->
+                <div class="hero-svg-overlay" style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(15, 23, 42, 0.3) 80%); z-index: 11; pointer-events: none;"></div>
             </div>
         </div>
         
@@ -187,8 +176,13 @@
         }
         
         /* Hide SVG overlays on mobile - they cause layout issues */
-        .hero-image-wrapper svg {
+        .hero-svg-overlay {
             display: none !important;
+        }
+        
+        /* Ensure photo displays */
+        .hero-photo-container {
+            display: block !important;
         }
         
         .hero-content h1 {
