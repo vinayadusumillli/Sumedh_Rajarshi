@@ -113,33 +113,141 @@
     }
 }
 
-/* === HERO SECTION - ESTHER STYLE === */
+/* ============================================
+   PROFESSIONAL HERO SECTION
+   ============================================ */
 
 .hero {
-    min-height: 100vh;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 80px;
+}
+
+/* Subtle accent gradient */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.hero .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: center;
     position: relative;
-    padding: 0;
-    overflow: hidden;
-    background: #faf9f7; /* Light cream background */
+    z-index: 1;
 }
 
-/* Left Side: Content with padding */
+/* Content Side */
 .hero-content {
-    padding: clamp(3rem, 8vw, 6rem) clamp(3rem, 8vw, 8rem);
-    background: #faf9f7;
-    z-index: 2;
-    position: relative;
+    max-width: 600px;
 }
 
-/* Right Side: Photo with wavy overlay */
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50px;
+    color: #60a5fa;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-cta .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Image Side */
+.hero-image-wrapper {
+    position: relative;
+    height: 550px;
+}
+
 .hero-image {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
     position: relative;
-    overflow: visible;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .hero-image img {
@@ -149,135 +257,110 @@
     object-position: center;
 }
 
-/* Wavy SVG Overlay */
+/* Decorative elements */
 .hero-image::before {
     content: '';
     position: absolute;
-    top: -5%;
-    left: -15%;
-    width: 30%;
-    height: 110%;
-    background: #faf9f7;
-    clip-path: path('M0,0 Q50,100 0,200 L0,0 Z');
-    /* Wavy edge using ellipse */
-    clip-path: ellipse(60% 50% at 0% 50%);
+    inset: 0;
+    background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.3));
     z-index: 1;
 }
 
-/* Another wavy layer for depth */
-.hero-image::after {
-    content: '';
-    position: absolute;
-    bottom: -5%;
-    left: -10%;
-    width: 40%;
-    height: 40%;
-    background: #faf9f7;
-    clip-path: ellipse(70% 40% at 0% 70%);
-    z-index: 1;
+/* Stats badges */
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Conversational Typography */
-.hero-greeting {
-    font-family: 'Caveat', cursive, var(--font-primary);
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: #2c5f6f; /* Dark teal */
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+.hero-stat {
+    flex: 1;
 }
 
-.hero-title {
-    font-family: 'Caveat', cursive, var(--font-primary);
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 2rem;
-    line-height: 1.2;
-    font-weight: 600;
-    color: #2c5f6f; /* Dark teal */
+.hero-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 0.25rem;
 }
 
-.hero-subtitle {
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    color: #444;
-    margin-bottom: 2.5rem;
-    font-weight: 400;
-    line-height: 1.8;
-    max-width: 500px;
-    text-align: justify;
-}
-
-/* Simple CTA Button */
-.hero-cta {
-    display: inline-block;
-}
-
-.hero-cta .btn {
+.hero-stat-label {
     font-size: 0.875rem;
-    padding: 0.875rem 2.5rem;
-    font-weight: 600;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
+    color: #94a3b8;
+    font-weight: 500;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, #ffc0cb, #ffb6c1); /* Soft pink */
-    color: white;
-    border: none;
-    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.5);
-}
-
-/* Hide badge for cleaner look */
-.badge {
-    display: none;
-}
-
-/* Mobile Responsive */
+/* Responsive Design */
 @media (max-width: 1024px) {
-    .hero {
+    .hero .container {
         grid-template-columns: 1fr;
-        min-height: auto;
+        gap: 3rem;
     }
     
     .hero-content {
-        padding: 3rem 2rem;
-        order: 2;
+        text-align: center;
+        max-width: 100%;
     }
     
-    .hero-image {
-        order: 1;
-        height: 50vh;
-        min-height: 400px;
+    .hero-cta {
+        justify-content: center;
     }
     
-    .hero-image::before,
-    .hero-image::after {
-        display: none;
+    .hero-stats {
+        justify-content: center;
     }
     
-    .hero-subtitle {
-        text-align: left;
+    .hero-image-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+        height: 450px;
     }
 }
 
 @media (max-width: 640px) {
-    .hero-content {
-        padding: 2rem 1.5rem;
+    .hero {
+        padding: 100px 0 60px;
     }
     
-    .hero-image {
-        height: 40vh;
-        min-height: 300px;
+    .hero .container {
+        padding: 0 1.5rem;
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .hero-image-wrapper {
+        height: 400px;
     }
 }
-
-/* Add handwritten font (you can load this from Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
 
 /* === ABOUT SECTION === */
 

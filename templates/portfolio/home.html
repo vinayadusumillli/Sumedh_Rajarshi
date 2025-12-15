@@ -3,32 +3,63 @@
 
 {% block content %}
 
-<!-- Hero Section - Esther Style -->
-<section id="home" class="hero section">
-    {% if about_me %}
-    <!-- Left Side: Conversational Content -->
-    <div class="hero-content">
-        <p class="hero-greeting">Hi there,</p>
-        <h1 class="hero-title">Yes, I'm talking to you :-)</h1>
-        <p class="hero-subtitle">
-            You, the ambitious sports organization looking for excellence. 
-            Whether you need scouting expertise, player welfare solutions, or academy development, 
-            I bring the experience and passion to elevate your program to the next level.
-        </p>
-        <div class="hero-cta">
-            <a href="#experience" class="btn btn-primary">
-                DISCOVER MY WORK
-            </a>
+<!-- Professional Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        {% if about_me %}
+        <!-- Left: Content -->
+        <div class="hero-content">
+            <span class="hero-label">
+                <i class="fas fa-star"></i> Sports Management Professional
+            </span>
+            
+            <h1 class="hero-title">
+                Transforming Football Through
+                <span class="highlight">Excellence & Innovation</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Delivering world-class scouting, player welfare, and academy development solutions 
+                for elite sports organizations across India.
+            </p>
+            
+            <div class="hero-cta">
+                <a href="#experience" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i>
+                    View My Experience
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Let's Connect
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">200+</span>
+                    <span class="hero-stat-label">Players Scouted</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">5</span>
+                    <span class="hero-stat-label">Elite Clubs</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">15+</span>
+                    <span class="hero-stat-label">FIFA Certifications</span>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <!-- Right Side: Photo with Wavy Overlay -->
-    <div class="hero-image">
-        {% if about_me.profile_photo %}
-        <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}">
+        
+        <!-- Right: Professional Photo -->
+        <div class="hero-image-wrapper">
+            <div class="hero-image">
+                {% if about_me.profile_photo %}
+                <img src="{{ about_me.profile_photo.url }}" alt="{{about_me.name}} - Professional Photo">
+                {% endif %}
+            </div>
+        </div>
         {% endif %}
     </div>
-    {% endif %}
 </section>
 
 <!-- About Section -->
