@@ -1,7 +1,161 @@
 from django.db import models
-from django.core.validators import EmailValidator, URLValidator
+from django.core.validators import EmailValidator, URLValidator, MinValueValidator, MaxValueValidator
 from ckeditor.fields import RichTextField
 
+# ============================================
+# NEW MODELS FOR VISUAL STORYTELLING REDESIGN
+# ============================================
+
+class Testimonial(models.Model):
+    """Client/colleague testimonials for social proof"""
+    name = models.CharField(max_length=200, help_text="Person's full name")
+    role = models.CharField(max_length=200, help_text="e.g., 'Director of Football'")
+    company = models.CharField(max_length=200, help_text="Organization name")
+    photo = models.ImageField(
+        upload_to='testimonials/',
+        blank=True,
+        null=True,
+        help_text="Professional headshot"
+    )
+    quote = models.TextField(
+        max_length=500,
+        help_text="Keep it short and impactful (2-3 sentences max)"
+    )
+    rating = models.IntegerField(
+        default=5,
+        validators=[MinValueValidator(1), MaxValueValidator(5)],
+        help_text="1-5 star rating"
+    )
+    featured = models.BooleanField(
+        default=False,
+        help_text="Show on homepage"
+    )
+    order = models.IntegerField(default=0, help_text="Display order (lower = first)")
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['order', '-created_at']
+        verbose_name = "Testimonial"
+        verbose_name_plural = "Testimonials"
+    
+    def __str__(self):
+        return f"{self.name} - {self.company}"
+
+
+class Project(models.Model):
+    """Case studies/projects showcasing impact"""
+    title = models.CharField(max_length=200, help_text="e.g., 'Revolutionizing Youth Scouting'")
+    slug = models.SlugField(unique=True, help_text="URL-friendly version")
+    subtitle = models.CharField(
+        max_length=300,
+        help_text="One-line impact summary"
+    )
+    
+    # The Story
+    problem = RichTextField(
+        blank=True,
+        help_text="THE CHALLENGE - What problem did you solve?"
+    )
+    solution = RichTextField(
+        blank=True,
+        help_text="MY APPROACH - How did you solve it?"
+    )
+    impact = RichTextField(
+        blank=True,
+        help_text="THE IMPACT - Results with numbers/data"
+    )
+    
+    # Visual Content
+    hero_image = models.ImageField(
+        upload_to='projects/',
+        help_text="Large header image for project"
+    )
+    
+    # Metadata
+    tags = models.CharField(
+        max_length=200,
+        blank=True,
+        help_text="Comma-separated: Scouting, Analytics, Development"
+    )
+    featured = models.BooleanField(
+        default=False,
+        help_text="Show on homepage"
+    )
+    order = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['order', '-created_at']
+        verbose_name = "Project / Case Study"
+        verbose_name_plural = "Projects / Case Studies"
+    
+    def __str__(self):
+        return self.title
+    
+    def get_tags_list(self):
+        return [tag.strip() for tag in self.tags.split(',') if tag.strip()]
+
+
+class ProjectImage(models.Model):
+    """Gallery images for projects"""
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.CASCADE,
+        related_name='gallery_images'
+    )
+    image = models.ImageField(
+        upload_to='projects/gallery/',
+        help_text="Project gallery image"
+    )
+    caption = models.CharField(max_length=200, blank=True)
+    order = models.IntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order']
+        verbose_name = "Project Image"
+        verbose_name_plural = "Project Images"
+    
+    def __str__(self):
+        return f"{self.project.title} - Image {self.order}"
+
+
+class ActionPhoto(models.Model):
+    """Action photos for visual storytelling throughout site"""
+    CATEGORY_CHOICES = [
+        ('coaching', 'Coaching/Training'),
+        ('scouting', 'Scouting/Analysis'),
+        ('event', 'Event/Matchday'),
+        ('academy', 'Bombay Sharks Academy'),
+        ('professional', 'Professional Headshots'),
+        ('other', 'Other'),
+    ]
+    
+    title = models.CharField(max_length=200)
+    image = models.ImageField(
+        upload_to='action_photos/',
+        help_text="High-quality action photo"
+    )
+    category = models.CharField(
+        max_length=20,
+        choices=CATEGORY_CHOICES,
+        default='other'
+    )
+    caption = models.TextField(blank=True, max_length=300)
+    featured_on_homepage = models.BooleanField(default=False)
+    order = models.IntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order', '-id']
+        verbose_name = "Action Photo"
+        verbose_name_plural = "Action Photos"
+    
+    def __str__(self):
+        return f"{self.title} ({self.get_category_display()})"
+
+
+# ============================================
+# EXISTING MODELS (ENHANCED)
+# ============================================
 
 class AboutMe(models.Model):
     """

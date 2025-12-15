@@ -1,6 +1,10 @@
 from django.contrib import admin
-from django.utils.html import format_html
-from .models import AboutMe, Experience, BombayShark, GalleryImage, Certification, ContactSubmission, CompanyLogo
+from .models import (
+    AboutMe, Experience, BombayShark, GalleryImage,
+    Certification, ContactSubmission, CompanyLogo,
+    # New models for redesign
+    Testimonial, Project, ProjectImage, ActionPhoto
+)
 
 
 class GalleryImageInline(admin.TabularInline):
