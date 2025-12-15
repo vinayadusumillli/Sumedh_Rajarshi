@@ -8,22 +8,65 @@
     <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 1;">
         {% if about_me %}
         
-        <!-- LEFT: Content with Conversational Copy -->
+        <!-- LEFT: Professional Content -->
         <div class="hero-content" style="max-width: 600px; position: relative; z-index: 2;">
-            <h2 style="font-family: 'Courier New', monospace; font-size: 2.5rem; font-weight: 400; color: #ffffff; margin-bottom: 1rem; line-height: 1.3;">
-                Hi there,<br>
-                Yes, I'm talking to you :-)
-            </h2>
+            <span class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 50px; color: #60a5fa; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; backdrop-filter: blur(10px);">
+                <i class="fas fa-star" style="color: #60a5fa;"></i> Sports Management Professional
+            </span>
             
-            <p class="hero-subtitle" style="font-size: 1.125rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 2.5rem; font-weight: 400;">
-                You, the ambitious sports professional in a competitive world. On one hand, you're driven by excellence and results. On the other hand, you want to build something meaningful—combining operational efficiency with genuine player welfare.
-                <br><br>
-                That's where I come in.
+            <h1 style="font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; color: #ffffff; letter-spacing: -0.02em;">
+                Transforming Football Through
+                <span style="display: block; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Excellence & Innovation</span>
+            </h1>
+            
+            <p style="font-size: 1.125rem; line-height: 1.7; color: #94a3b8; margin-bottom: 2.5rem; font-weight: 400;">
+                Delivering world-class scouting, player welfare, and academy development solutions for elite sports organizations across India.
             </p>
             
-            <a href="#contact" class="btn" style="display: inline-block; padding: 0.875rem 2rem; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 2px solid #60a5fa; border-radius: 50px; text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s ease;">
-                Let's Connect
-            </a>
+            <!-- Premium Buttons -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;">
+                <a href="#experience" class="btn-premium-primary" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    padding: 1rem 2rem;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+                    color: white;
+                    border: none;
+                    border-radius: 0.75rem;
+                    text-decoration: none;
+                    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <i class="fas fa-briefcase"></i>
+                    <span>View My Experience</span>
+                </a>
+                <a href="#contact" class="btn-premium-secondary" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    padding: 1rem 2rem;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(20px);
+                    color: white;
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 0.75rem;
+                    text-decoration: none;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <i class="fas fa-envelope"></i>
+                    <span>Let's Connect</span>
+                </a>
+            </div>
         </div>
         
         <!-- RIGHT: Photo with Wavy SVG Overlays (Esther Style) -->
@@ -75,11 +118,44 @@
     
     <!-- CSS Animations & Mobile Responsive Styles -->
     <style>
-    .btn:hover {
-        background: #3b82f6;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    /* Ultra-Premium Button Hover Effects */
+    .btn-premium-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 50px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.3);
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    }
+    
+    .btn-premium-primary:active {
+        transform: translateY(-1px) scale(1.01);
+    }
+    
+    .btn-premium-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    
+    .btn-premium-secondary:active {
+        transform: translateY(-1px) scale(1.01);
+    }
+    
+    /* Premium Button Shine Effect */
+    .btn-premium-primary::before,
+    .btn-premium-secondary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+    }
+    
+    .btn-premium-primary:hover::before,
+    .btn-premium-secondary:hover::before {
+        left: 100%;
     }
     
     /* ===== MOBILE & TABLET RESPONSIVE STYLES ===== */
