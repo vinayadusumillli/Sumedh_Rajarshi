@@ -110,20 +110,50 @@
     --transition-slow: 0.5s ease;
 }
 
-/* === BASE STYLES === */
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+/* Smooth Scrolling - Best in Class */
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    scroll-padding-top: 80px; /* Account for fixed nav */
+    font-size: 16px; /* Keep base font size */
+}
+
+/* Hardware Acceleration for Smoothness */
+html,
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-sans); /* Use existing font variable */
     background-color: var(--bg-dark);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions on all interactive elements */
+a, button, input, textarea, select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove default link styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Improved focus states */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* Background pattern */
