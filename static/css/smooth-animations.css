@@ -12,7 +12,7 @@
 }
 
 /* Animated state (visible) */
-.fade-in-scroll.animate-in {
+.fade-inscroll.animate-in {
     opacity: 1;
     transform: translateY(0);
 }
@@ -24,16 +24,6 @@
 .fade-in-scroll:nth-child(4) { transition-delay: 0.3s; }
 .fade-in-scroll:nth-child(5) { transition-delay: 0.4s; }
 .fade-in-scroll:nth-child(6) { transition-delay: 0.5s; }
-
-/* Page load animation */
-body {
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
-}
-
-body.loaded {
-    opacity: 1;
-}
 
 /* Smooth transitions for all sections */
 .section {
