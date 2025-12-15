@@ -503,47 +503,46 @@
 
 /* === EXPERIENCE TIMELINE === */
 
+/* Timeline Container */
 .timeline {
     position: relative;
-    padding-left: var(--space-xl);
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
+    padding-left: 40px;
 }
 
+/* Centered vertical line */
 .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 20px;
     top: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--gradient-primary);
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
 }
 
+/* Timeline Items */
 .timeline-item {
     position: relative;
-    margin-bottom: var(--space-xl);
+    margin-bottom: 2rem;
+    padding-left: 2rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
 }
 
+/* Timeline Dots - Centered on Line */
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -54px;
-    top: 0;
-    width: 16px;
-    height: 16px;
+    left: -26px;
+    top: 12px;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border: 3px solid var(--bg-dark);
     border-radius: 50%;
-    background: var(--gradient-primary);
-    border: 4px solid var(--bg-dark);
-    box-shadow: 
-        0 0 0 4px rgba(99, 102, 241, 0.3),
-        var(--shadow-glow);
     z-index: 2;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
     animation: pulse-dot 2s ease-in-out infinite;
 }
 
