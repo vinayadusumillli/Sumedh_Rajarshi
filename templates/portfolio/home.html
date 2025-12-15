@@ -3,34 +3,37 @@
 
 {% block content %}
 
-<!-- Hero Section -->
+<!-- Hero Section - Modern Split Screen -->
 <section id="home" class="hero section">
-    <div class="container">
-        <div class="hero-content fade-in-up">
-            {% if about_me %}
-                {% if about_me.profile_photo %}
-                <div class="hero-image">
-                    <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}">
-                </div>
-                {% endif %}
-                
-                <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">{{ about_me.name }}</span>
-                </h1>
-                <p class="hero-subtitle">{{ about_me.title }}</p>
-                
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-ripple">Get In Touch</a>
-                    {% if about_me.resume %}
-                    <a href="{{ about_me.resume.url }}" class="btn btn-outline" target="_blank">Download CV</a>
-                    {% endif %}
-                </div>
-            {% else %}
-                <h1 class="hero-title gradient-text">Welcome</h1>
-                <p class="hero-subtitle">Professional Portfolio</p>
-            {% endif %}
+    {% if about_me %}
+    <!-- Left Side: Content -->
+    <div class="hero-content">
+        <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">{{ about_me.name }}</span>
+        </h1>
+        <p class="hero-subtitle">
+            {{ about_me.title }}
+        </p>
+        <div class="hero-cta">
+            <a href="#work" class="btn btn-primary">
+                <i class="fas fa-briefcase"></i> View My Work
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Let's Connect
+            </a>
+        </div>
+        <div class="badge badge-accent">
+            <i class="fas fa-certificate"></i> 15+ FIFA Certifications
         </div>
     </div>
+    
+    <!-- Right Side: Photo -->
+    <div class="hero-image">
+        {% if about_me.profile_photo %}
+        <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}">
+        {% endif %}
+    </div>
+    {% endif %}
 </section>
 
 <!-- About Section -->
