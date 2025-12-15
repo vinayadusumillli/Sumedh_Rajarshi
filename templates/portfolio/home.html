@@ -3,31 +3,26 @@
 
 {% block content %}
 
-<!-- Hero Section - Modern Split Screen -->
+<!-- Hero Section - Esther Style -->
 <section id="home" class="hero section">
     {% if about_me %}
-    <!-- Left Side: Content -->
+    <!-- Left Side: Conversational Content -->
     <div class="hero-content">
-        <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">{{ about_me.name }}</span>
-        </h1>
+        <p class="hero-greeting">Hi there,</p>
+        <h1 class="hero-title">Yes, I'm talking to you :-)</h1>
         <p class="hero-subtitle">
-            {{ about_me.title }}
+            You, the ambitious sports organization looking for excellence. 
+            Whether you need scouting expertise, player welfare solutions, or academy development, 
+            I bring the experience and passion to elevate your program to the next level.
         </p>
         <div class="hero-cta">
-            <a href="#work" class="btn btn-primary">
-                <i class="fas fa-briefcase"></i> View My Work
+            <a href="#experience" class="btn btn-primary">
+                DISCOVER MY WORK
             </a>
-            <a href="#contact" class="btn btn-outline">
-                <i class="fas fa-envelope"></i> Let's Connect
-            </a>
-        </div>
-        <div class="badge badge-accent">
-            <i class="fas fa-certificate"></i> 15+ FIFA Certifications
         </div>
     </div>
     
-    <!-- Right Side: Photo -->
+    <!-- Right Side: Photo with Wavy Overlay -->
     <div class="hero-image">
         {% if about_me.profile_photo %}
         <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}">

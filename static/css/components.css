@@ -113,46 +113,33 @@
     }
 }
 
-/* === HERO SECTION - CREATIVE MODERN DESIGN === */
+/* === HERO SECTION - ESTHER STYLE === */
 
 .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     align-items: center;
     position: relative;
-    padding: 120px 0 60px;
+    padding: 0;
     overflow: hidden;
-    gap: 4rem;
+    background: #faf9f7; /* Light cream background */
 }
 
-/* Refined Gradient Background */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
-    z-index: -1;
-}
-
+/* Left Side: Content with padding */
 .hero-content {
-    padding: 0 clamp(2rem, 5vw, 4rem);
-    max-width: 600px;
-    justify-self: end;
+    padding: clamp(3rem, 8vw, 6rem) clamp(3rem, 8vw, 8rem);
+    background: #faf9f7;
+    z-index: 2;
+    position: relative;
 }
 
-/* Professional Photo Section */
+/* Right Side: Photo with wavy overlay */
 .hero-image {
     width: 100%;
-    height: 100%;
-    min-height: 600px;
+    height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .hero-image img {
@@ -162,101 +149,92 @@
     object-position: center;
 }
 
-/* Decorative wavy overlay (optional) */
+/* Wavy SVG Overlay */
 .hero-image::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -50px;
-    width: 150px;
-    height: 100%;
-    background: var(--bg-dark);
-    clip-path: ellipse(40% 50% at 0% 50%);
+    top: -5%;
+    left: -15%;
+    width: 30%;
+    height: 110%;
+    background: #faf9f7;
+    clip-path: path('M0,0 Q50,100 0,200 L0,0 Z');
+    /* Wavy edge using ellipse */
+    clip-path: ellipse(60% 50% at 0% 50%);
     z-index: 1;
 }
 
-/* Typography */
+/* Another wavy layer for depth */
+.hero-image::after {
+    content: '';
+    position: absolute;
+    bottom: -5%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    background: #faf9f7;
+    clip-path: ellipse(70% 40% at 0% 70%);
+    z-index: 1;
+}
+
+/* Conversational Typography */
+.hero-greeting {
+    font-family: 'Caveat', cursive, var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #2c5f6f; /* Dark teal */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% auto;
-    animation: gradient-shift 4s ease-in-out infinite;
-}
-
-@keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    font-family: 'Caveat', cursive, var(--font-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #2c5f6f; /* Dark teal */
 }
 
 .hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: #444;
+    margin-bottom: 2.5rem;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.8;
+    max-width: 500px;
+    text-align: justify;
 }
 
-/* Refined CTA Buttons */
+/* Simple CTA Button */
 .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
+    display: inline-block;
 }
 
 .hero-cta .btn {
-    font-size: 1rem;
-    padding: 0.875rem 2rem;
+    font-size: 0.875rem;
+    padding: 0.875rem 2.5rem;
     font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    background: linear-gradient(135deg, #ffc0cb, #ffb6c1); /* Soft pink */
     color: white;
     border: none;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.5);
 }
 
-.btn-outline {
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-outline:hover {
-    background: rgba(99, 102, 241, 0.1);
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-/* Refined Badge */
+/* Hide badge for cleaner look */
 .badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1.25rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--color-primary);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    display: none;
 }
 
 /* Mobile Responsive */
@@ -264,58 +242,42 @@
     .hero {
         grid-template-columns: 1fr;
         min-height: auto;
-        padding: 100px 0 40px;
-        gap: 3rem;
     }
     
     .hero-content {
-        justify-self: center;
-        text-align: center;
-        padding: 0 2rem;
-        max-width: 100%;
+        padding: 3rem 2rem;
         order: 2;
     }
     
     .hero-image {
         order: 1;
+        height: 50vh;
         min-height: 400px;
-        max-height: 500px;
     }
     
-    .hero-image::before {
+    .hero-image::before,
+    .hero-image::after {
         display: none;
     }
     
-    .hero-cta {
-        justify-content: center;
+    .hero-subtitle {
+        text-align: left;
     }
 }
 
 @media (max-width: 640px) {
-    .hero {
-        padding: 80px 0 30px;
-        gap: 2rem;
-    }
-    
     .hero-content {
-        padding: 0 1.5rem;
+        padding: 2rem 1.5rem;
     }
     
     .hero-image {
+        height: 40vh;
         min-height: 300px;
-        max-height: 400px;
-    }
-    
-    .hero-cta {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .hero-cta .btn {
-        width: 100%;
-        justify-content: center;
     }
 }
+
+/* Add handwritten font (you can load this from Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
 
 /* === ABOUT SECTION === */
 
