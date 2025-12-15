@@ -268,26 +268,29 @@
 
 /* Stats badges */
 .hero-stats {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 600px;
 }
 
 .hero-stat {
-    flex: 1;
+    text-align: center;
 }
 
 .hero-stat-number {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, #60a5fa, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1;
 }
 
 .hero-stat-label {
@@ -306,6 +309,7 @@
     .hero-content {
         text-align: center;
         max-width: 100%;
+        margin: 0 auto;
     }
     
     .hero-cta {
@@ -314,6 +318,7 @@
     
     .hero-stats {
         justify-content: center;
+        margin: 3rem auto 0;
     }
     
     .hero-image-wrapper {
@@ -352,7 +357,7 @@
     }
     
     .hero-stats {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
     }
@@ -360,6 +365,13 @@
     .hero-image-wrapper {
         height: 400px;
     }
+}
+
+/* === ABOUT SECTION === */
+
+.about-section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: var(--bg-dark);
 }
 
 /* === ABOUT SECTION === */
