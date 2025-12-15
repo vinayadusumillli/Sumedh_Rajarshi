@@ -1,0 +1,145 @@
+/* ====================================================
+   MOBILE & TABLET RESPONSIVE STYLES
+   Complete responsive design for all devices
+   ==================================================== */
+
+/* Tablets & Smaller Screens (1024px and below) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+    
+    .section {
+        padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        padding: var(--space-sm) 0;
+    }
+    
+    .nav-links {
+        display: none; /* Mobile menu would go here */
+    }
+    
+    /* Typography */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-image-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* Experience Timeline */
+    .timeline-item {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-item::before {
+        left: 8px;
+    }
+    
+    /* Cards & Grid Layouts */
+    .certifications-grid,
+    .companies-grid,
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    /* Stats Section */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Typography */
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.938rem;
+    }
+    
+    /* Navigation */
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    /* Cards Stack Vertically */
+    .certifications-grid,
+    .companies-grid,
+    .skills-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Timeline */
+    .timeline-item {
+        padding-left: 2rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.125rem;
+    }
+    
+    .timeline-content h4 {
+        font-size: 0.938rem;
+    }
+    
+    /* Buttons */
+    .btn,
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    /* Social Links */
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-image-wrapper {
+        height: 300px !important;
+    }
+}
