@@ -4,57 +4,57 @@
 {% block content %}
 
 <!-- Professional Hero Section -->
-<section id="home" class="hero">
-    <div class="container">
+<section id="home" class="hero" style="min-height: 90vh; display: flex !important; align-items: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden; padding: 120px 0 80px; margin-bottom: 4rem;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1;">
         {% if about_me %}
         <!-- Left: Content -->
-        <div class="hero-content">
-            <span class="hero-label">
+        <div class="hero-content" style="max-width: 600px;">
+            <span class="hero-label" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 50px; color: #60a5fa; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem;">
                 <i class="fas fa-star"></i> Sports Management Professional
             </span>
             
-            <h1 class="hero-title">
+            <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: #ffffff;">
                 Transforming Football Through
-                <span class="highlight">Excellence & Innovation</span>
+                <span class="highlight" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Excellence & Innovation</span>
             </h1>
             
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" style="font-size: 1.25rem; line-height: 1.7; color: #94a3b8; margin-bottom: 2.5rem;">
                 Delivering world-class scouting, player welfare, and academy development solutions 
                 for elite sports organizations across India.
             </p>
             
-            <div class="hero-cta">
-                <a href="#experience" class="btn btn-primary">
+            <div class="hero-cta" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;">
+                <a href="#experience" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 0.5rem; background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
                     <i class="fas fa-briefcase"></i>
                     View My Experience
                 </a>
-                <a href="#contact" class="btn btn-secondary">
+                <a href="#contact" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.1); color: white; border: 2px solid rgba(255, 255, 255, 0.2); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
                     <i class="fas fa-envelope"></i>
                     Let's Connect
                 </a>
             </div>
             
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-number">200+</span>
-                    <span class="hero-stat-label">Players Scouted</span>
+            <div class="hero-stats" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                <div class="hero-stat" style="text-align: center;">
+                    <span class="hero-stat-number" style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 0.5rem;">200+</span>
+                    <span class="hero-stat-label" style="font-size: 0.875rem; color: #94a3b8;">Players Scouted</span>
                 </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">5</span>
-                    <span class="hero-stat-label">Elite Clubs</span>
+                <div class="hero-stat" style="text-align: center;">
+                    <span class="hero-stat-number" style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 0.5rem;">5</span>
+                    <span class="hero-stat-label" style="font-size: 0.875rem; color: #94a3b8;">Elite Clubs</span>
                 </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">15+</span>
-                    <span class="hero-stat-label">FIFA Certifications</span>
+                <div class="hero-stat" style="text-align: center;">
+                    <span class="hero-stat-number" style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 0.5rem;">15+</span>
+                    <span class="hero-stat-label" style="font-size: 0.875rem; color: #94a3b8;">FIFA Certifications</span>
                 </div>
             </div>
         </div>
         
         <!-- Right: Professional Photo -->
-        <div class="hero-image-wrapper">
-            <div class="hero-image">
+        <div class="hero-image-wrapper" style="position: relative; height: 550px;">
+            <div class="hero-image" style="width: 100%; height: 100%; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);">
                 {% if about_me.profile_photo %}
-                <img src="{{ about_me.profile_photo.url }}" alt="{{about_me.name}} - Professional Photo">
+                <img src="{{ about_me.profile_photo.url }}" alt="{{about_me.name}} - Professional Photo" style="width: 100%; height: 100%; object-fit: cover;">
                 {% endif %}
             </div>
         </div>
