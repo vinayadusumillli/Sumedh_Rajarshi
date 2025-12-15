@@ -64,14 +64,14 @@
 
 <!-- About Section -->
 {% if about_me %}
-<section id="about" class="section">
+<section id="about" class="section" style="padding-top: 6rem;">
     <div class="container">
         <h2 class="section-title fade-in-up">About Me</h2>
         
         <div class="about-content">
             <div class="about-image-wrapper fade-in-left">
                 <div class="about-image image-zoom">
-                    <img src="{% static 'images/profile/Mumbai_City_Fc_solo_photo_original.jpg' %}" alt="{{ about_me.name }}" class="img-rounded">
+                    <img src="/media/profile/Jaipur_Pink_Panthers_solo_photo_1.jpg" alt="{{ about_me.name }}" class="img-rounded">
                 </div>
                 
                 {% if about_me.linkedin_url or about_me.instagram_url or about_me.twitter_url %}
