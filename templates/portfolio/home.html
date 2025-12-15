@@ -70,11 +70,9 @@
         
         <div class="about-content">
             <div class="about-image-wrapper fade-in-left">
-                {% if about_me.profile_photo %}
                 <div class="about-image image-zoom">
-                    <img src="{{ about_me.profile_photo.url }}" alt="{{ about_me.name }}" class="img-rounded">
+                    <img src="{% static 'images/profile/Mumbai_City_Fc_solo_photo_original.jpg' %}" alt="{{ about_me.name }}" class="img-rounded">
                 </div>
-                {% endif %}
                 
                 {% if about_me.linkedin_url or about_me.instagram_url or about_me.twitter_url %}
                 <div class="social-links">
